@@ -49,18 +49,18 @@ public class PandaMove : MonoBehaviour
 
     private void Update()
     {
-        /*
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if(Physics.Raycast(ray, out RaycastHit hit))
-            { 
-                agent.SetDestination(hit.point);
+            {
+                if (hit.collider.tag == "Panda")
+                    Debug.Log("ÅÍÄ¡");
 
             }
         }
-        */
+
         if (!isMove)
         {
             isMove = true;
