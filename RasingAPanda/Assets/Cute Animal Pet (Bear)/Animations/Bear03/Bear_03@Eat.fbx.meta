@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: d99e641cb82ed894ab4088241f52728f
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bear_01_2
+    100002: Bear_01_3
+    100004: Bear_01_base
+    100006: //RootNode
+    100008: Bear_Eye
+    100010: Bear_Eyeblow
+    100012: Bip001
+    100014: Bip001_Head
+    100016: Bip001_Jaw
+    100018: Bip001_L_Calf
+    100020: Bip001_L_Clavicle
+    100022: Bip001_L_Eye
+    100024: Bip001_L_Eyeblow
+    100026: Bip001_L_Foot
+    100028: Bip001_L_Forearm
+    100030: Bip001_L_Hand
+    100032: Bip001_L_HorseLink
+    100034: Bip001_L_Thigh
+    100036: Bip001_L_UpperArm
+    100038: Bip001_Neck
+    100040: Bip001_Pelvis
+    100042: Bip001_R_Calf
+    100044: Bip001_R_Clavicle
+    100046: Bip001_R_Eye
+    100048: Bip001_R_Eyeblow
+    100050: Bip001_R_Foot
+    100052: Bip001_R_Forearm
+    100054: Bip001_R_Hand
+    100056: Bip001_R_HorseLink
+    100058: Bip001_R_Thigh
+    100060: Bip001_R_UpperArm
+    100062: Bip001_Spine
+    100064: Bip001_Spine1
+    100066: Shadow
+    100068: Shadow_0
+    100070: Skin
+    100072: Skin_2
+    100074: Skin_3
+    400000: Bear_01_2
+    400002: Bear_01_3
+    400004: Bear_01_base
+    400006: //RootNode
+    400008: Bear_Eye
+    400010: Bear_Eyeblow
+    400012: Bip001
+    400014: Bip001_Head
+    400016: Bip001_Jaw
+    400018: Bip001_L_Calf
+    400020: Bip001_L_Clavicle
+    400022: Bip001_L_Eye
+    400024: Bip001_L_Eyeblow
+    400026: Bip001_L_Foot
+    400028: Bip001_L_Forearm
+    400030: Bip001_L_Hand
+    400032: Bip001_L_HorseLink
+    400034: Bip001_L_Thigh
+    400036: Bip001_L_UpperArm
+    400038: Bip001_Neck
+    400040: Bip001_Pelvis
+    400042: Bip001_R_Calf
+    400044: Bip001_R_Clavicle
+    400046: Bip001_R_Eye
+    400048: Bip001_R_Eyeblow
+    400050: Bip001_R_Foot
+    400052: Bip001_R_Forearm
+    400054: Bip001_R_Hand
+    400056: Bip001_R_HorseLink
+    400058: Bip001_R_Thigh
+    400060: Bip001_R_UpperArm
+    400062: Bip001_Spine
+    400064: Bip001_Spine1
+    400066: Shadow
+    400068: Shadow_0
+    400070: Skin
+    400072: Skin_2
+    400074: Skin_3
+    2100000: shadow
+    2100002: mat_Bear_01
+    2100004: mat_Bear_01.1
+    2100006: mat_Bear_01.2
+    2300000: Shadow_0
+    3300000: Shadow_0
+    4300000: Shadow_0
+    4300002: Bear_01_3
+    4300004: Bear_Eye
+    4300006: Bear_Eyeblow
+    7400000: C4D Animation Take
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Bear_01_3
+    13700002: Bear_Eye
+    13700004: Bear_Eyeblow
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Bear_01
+    second: {fileID: 2100000, guid: 697ff60938e16514aa192d1fa3d88b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Bear_01.1
+    second: {fileID: 2100000, guid: 697ff60938e16514aa192d1fa3d88b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Bear_01.2
+    second: {fileID: 2100000, guid: 697ff60938e16514aa192d1fa3d88b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shadow
+    second: {fileID: 2100000, guid: 0a68b3dd095172c41850bd0b472dca17, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

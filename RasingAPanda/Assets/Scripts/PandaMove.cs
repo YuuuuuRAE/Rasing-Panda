@@ -94,6 +94,7 @@ public class PandaMove : MonoBehaviour
         //Walk
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
+
             if(Mode == 2)
             {
                 animator.SetBool("isRun", false);
