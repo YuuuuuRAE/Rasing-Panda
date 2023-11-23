@@ -29,6 +29,10 @@ public class Data
     public int[] playing_Tools = new int[3];            //³îÀÌµµ±¸ °¹¼ö
     public int[] pt_durability = new int[3] {1, 3, 5};  //³îÀÌµµ±¸ ³»±¸µµ
 
+    public int feed_num = 0;
+    public int ct_num = 0;
+    public int pt_num = 0;
+
     public bool[] click_Butt = new bool[4];
     public float[] time = new float[4];
 

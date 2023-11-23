@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Reflection;
 
 public class Interaction : MonoBehaviour
 {
@@ -42,10 +43,10 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        FeedButton();
-        WaterButton();
-        CleanButton();
-        PlayButton();
+        FeedButton(data.feeds[data.feed_num]);
+        WaterButton(data.water);
+        CleanButton(data.cleaning_Tools[data.ct_num]);
+        PlayButton(data.playing_Tools[data.pt_num]);
 
         //ComputeTime();
     }
@@ -81,7 +82,6 @@ public class Interaction : MonoBehaviour
         }
     }
 
-
     public void EffectClear()
     {
         GameObject FindObj = GameObject.FindGameObjectWithTag("Effect");
@@ -90,12 +90,6 @@ public class Interaction : MonoBehaviour
             DestroyImmediate(FindObj);
             Panda.GetComponent<Animation>().CrossFade("Idle");
         }
-    }
-
-    public void CheckClickButton(int index)
-    {
-        data.click_Butt[index] = true;
-        Time_Texts[index].gameObject.SetActive(true);
     }
 
     public void AccelInteraction()
@@ -111,7 +105,7 @@ public class Interaction : MonoBehaviour
 
     }
 
-    private void FeedButton()
+    private void FeedButton(int index)
     {
         if (data.click_Butt[0])
         {
@@ -135,7 +129,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void WaterButton()
+    private void WaterButton(int index)
     {
         if (data.click_Butt[1])
         {
@@ -159,7 +153,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void CleanButton()
+    private void CleanButton(int index)
     {
         if (data.click_Butt[2])
         {
@@ -183,7 +177,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void PlayButton()
+    private void PlayButton(int index)
     {
         if (data.click_Butt[3])
         {
@@ -217,6 +211,10 @@ public class Interaction : MonoBehaviour
     {
         if (data.feeds[f_num] > 0)
         {
+
+            data.click_Butt[0] = true;
+            Time_Texts[0].gameObject.SetActive(true);
+
             data.feeds[f_num]--;
 
             FeedAnimation();
@@ -254,6 +252,8 @@ public class Interaction : MonoBehaviour
     {
         if (data.water > 0)
         {
+            data.click_Butt[1] = true;
+            Time_Texts[1].gameObject.SetActive(true);
             FeedAnimation();
             data.water--;
             data.affection_curXP += 3;
@@ -265,6 +265,9 @@ public class Interaction : MonoBehaviour
     {
         if (data.cleaning_Tools[c_num] > 0)
         {
+            data.click_Butt[2] = true;
+            Time_Texts[2].gameObject.SetActive(true);
+
             CleanAnimation();
 
             int durability = 0;
@@ -310,6 +313,9 @@ public class Interaction : MonoBehaviour
     {
         if (data.playing_Tools[p_num] > 0)
         {
+            data.click_Butt[3] = true;
+            Time_Texts[3].gameObject.SetActive(true);
+
             PlayAnimation();
 
             int durability = 0;
