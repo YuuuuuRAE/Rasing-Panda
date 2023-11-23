@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class GameManager : MonoBehaviour
     private float stress_delay = 300f; //60 x 5
     [Header("애니메이션 관련"), SerializeField, Tooltip("애니메이션 변경 시간")]
     private float animation_delay = 180f;
+    [Header("시간관련"),SerializeField]
+    private bool isFirst;
+    [SerializeField]
+    private bool isUpdate;
 
+    DateTime ToForegroundTime;
+    DateTime ToBackgroundTime;
 
 
 
@@ -41,15 +48,48 @@ public class GameManager : MonoBehaviour
         StartCoroutine("cleanliness", clean_delay);
         StartCoroutine("stress", stress_delay);
         StartCoroutine(pandaanimation(animation_delay));
+
+        isFirst = false;
     }
 
     void Update()
     {
         //Computate LV
         updateAffectionLV();
+        //ComputeTime();
 
 
+    }
 
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (!isFirst)
+        {
+            if (pause)
+            {
+                ToForegroundTime = DateTime.Now;
+            }
+            else
+            {
+                ToBackgroundTime = DateTime.Now;
+                isUpdate = true;
+            }
+        }
+    }
+
+    public void ComputeTime()
+    {
+        if (isUpdate)
+        {
+            var sec = ToBackgroundTime.Subtract(ToBackgroundTime).TotalSeconds;
+            for (int i = 0; i < (int)sec / clean_delay; i++)
+                data.cleanliness--;
+            for (int j = 0; j < (int)sec / stress_delay; j++)
+                data.stress++;
+
+            isUpdate = false;
+        }
     }
 
     private void updateAffectionLV()
@@ -97,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator pandaanimation(float delayTime)
     {
-        int Rand = Random.Range(0, 2);
+        int Rand = UnityEngine.Random.Range(0, 2);
 
         switch (Rand)
         {
