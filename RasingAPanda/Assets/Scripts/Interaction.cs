@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using System;
 
 public class Interaction : MonoBehaviour
 {
@@ -10,20 +13,74 @@ public class Interaction : MonoBehaviour
     private GameObject Panda;
     [SerializeField]
     public GameObject[] effPrefabArray = new GameObject[9];
+    public GameObject ShootPoint;
+    
+    private bool isFirst;
+    private bool isUpdate;
+
+    System.DateTime ToForegroundTime;
+    System.DateTime ToBackgroundTime;
+
+    [Header("RP_200 버튼 관리"), SerializeField]
+    private string[] minute_Texts;
     [SerializeField]
-    private GameObject ShootPoint;
-    // Start is called before the first frame update
+    private string[] second_Texts;
+    [SerializeField]
+    private TMP_Text[] Time_Texts;
+    [SerializeField]
+    private Button[] buttons;
+    [SerializeField]
+    private float accel_ext; //가속 증가량
+
+
+
     void Start()
     {
         data = DataManager.Instance.data;
-
+        isFirst = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        FeedButton();
+        WaterButton();
+        CleanButton();
+        PlayButton();
 
+        //ComputeTime();
     }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (!isFirst)
+        {
+            if (pause)
+            {
+                ToForegroundTime = DateTime.Now;
+            }
+            else
+            {
+                ToBackgroundTime = DateTime.Now;
+                isUpdate = true;
+            }
+        }
+    }
+
+    public void ComputeTime()
+    {
+        if (isUpdate)
+        {
+            var sec = ToBackgroundTime.Subtract(ToBackgroundTime).TotalSeconds;
+            
+            for (int i = 0; i < data.time.Length; i++)
+            {
+                data.time[i] += (float)sec;
+            }
+
+            isUpdate = false;
+        }
+    }
+
 
     public void EffectClear()
     {
@@ -34,6 +91,123 @@ public class Interaction : MonoBehaviour
             Panda.GetComponent<Animation>().CrossFade("Idle");
         }
     }
+
+    public void CheckClickButton(int index)
+    {
+        data.click_Butt[index] = true;
+        Time_Texts[index].gameObject.SetActive(true);
+    }
+
+    public void AccelInteraction()
+    {
+        for (int i = 0; i < data.time.Length; i++)
+        {
+            if (data.click_Butt[i])
+            {
+                data.time[i] += accel_ext;
+            }
+        }
+
+
+    }
+
+    private void FeedButton()
+    {
+        if (data.click_Butt[0])
+        {
+
+            data.time[0] += Time.deltaTime;
+            
+            buttons[0].interactable = false;
+
+            minute_Texts[0] = ((3600 - (int)data.time[0]) / 60 % 60).ToString();
+            second_Texts[0] = ((3600 - (int)data.time[0]) % 60).ToString();
+
+            Time_Texts[0].text = minute_Texts[0] + " : " + second_Texts[0];
+
+            if (data.time[0] >= 3600)
+            {
+                data.click_Butt[0] = false;
+                data.time[0] = 0;
+                Time_Texts[0].gameObject.SetActive(false);
+                buttons[0].interactable = true;
+            }
+        }
+    }
+
+    private void WaterButton()
+    {
+        if (data.click_Butt[1])
+        {
+
+            data.time[1] += Time.deltaTime;
+
+            buttons[1].interactable = false;
+
+            minute_Texts[1] = ((3600 - (int)data.time[1]) / 60 % 60).ToString();
+            second_Texts[1] = ((3600 - (int)data.time[1]) % 60).ToString();
+
+            Time_Texts[1].text = minute_Texts[1] + " : " + second_Texts[1];
+
+            if (data.time[1] >= 3600)
+            {
+                data.click_Butt[1] = false;
+                data.time[1] = 0;
+                Time_Texts[1].gameObject.SetActive(false);
+                buttons[1].interactable = true;
+            }
+        }
+    }
+
+    private void CleanButton()
+    {
+        if (data.click_Butt[2])
+        {
+
+            data.time[2] += Time.deltaTime;
+
+            buttons[2].interactable = false;
+
+            minute_Texts[2] = ((3600 - (int)data.time[2]) / 60 % 60).ToString();
+            second_Texts[2] = ((3600 - (int)data.time[2]) % 60).ToString();
+
+            Time_Texts[2].text = minute_Texts[2] + " : " + second_Texts[2];
+
+            if (data.time[2] >= 3600)
+            {
+                data.click_Butt[2] = false;
+                data.time[2] = 0;
+                Time_Texts[2].gameObject.SetActive(false);
+                buttons[2].interactable = true;
+            }
+        }
+    }
+
+    private void PlayButton()
+    {
+        if (data.click_Butt[3])
+        {
+
+            data.time[3] += Time.deltaTime;
+
+            buttons[3].interactable = false;
+
+            minute_Texts[3] = ((3600 - (int)data.time[3]) / 60 % 60).ToString();
+            second_Texts[3] = ((3600 - (int)data.time[3]) % 60).ToString();
+
+            Time_Texts[3].text = minute_Texts[3] + " : " + second_Texts[3];
+
+            if (data.time[3] >= 3600)
+            {
+                data.click_Butt[3] = false;
+                data.time[3] = 0;
+                Time_Texts[3].gameObject.SetActive(false);
+                buttons[3].interactable = true;
+            }
+        }
+    }
+
+
 
     /// <summary>
     ///  각각의 array 인덱스는 유동적으로 바꿀 수 있도록 수정할 것!

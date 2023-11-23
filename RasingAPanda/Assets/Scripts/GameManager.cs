@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
         //ComputeTime();
 
 
+        if (data.cleanliness < 0) data.cleanliness = 0;
+        if (data.stress > 100) data.stress = 100;
+
     }
 
 
@@ -117,9 +120,6 @@ public class GameManager : MonoBehaviour
     IEnumerator cleanliness(float delayTime)
     {
         data.cleanliness--;
-
-        if(data.cleanliness < 0) data.cleanliness = 0;
-
         yield return new WaitForSeconds(delayTime);
         StartCoroutine("cleanliness", delayTime);
     }
@@ -128,9 +128,6 @@ public class GameManager : MonoBehaviour
     {
         if (data.cleanliness > 40) data.stress++;
         else data.stress += 2;
-
-        if (data.stress > 100) data.stress = 100;
-
         yield return new WaitForSeconds(delayTime);
         StartCoroutine("stress", delayTime);
     }

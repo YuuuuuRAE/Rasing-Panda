@@ -23,13 +23,14 @@ public class eff_Shoot : MonoBehaviour
     private void Start()
     {
 
-        StartCoroutine("Shoot");
+        //StartCoroutine("Shoot");
     }
 
     IEnumerator Shoot()
     {
+
         yield return new WaitForSeconds(_shootWaitTime);
-        this.transform.position = Camera.main.GetComponent<AnimalBearCharacterButton>().ShootPoint.transform.position + _StartPos;
+        this.transform.position = Interaction.FindObjectOfType<Interaction>().ShootPoint.transform.position + _StartPos;
         _Bullet.SetActive(true);
         GetComponent<Rigidbody>().AddForce(transform.forward * _speed, ForceMode.Impulse);
         Destroy(gameObject, 3);
