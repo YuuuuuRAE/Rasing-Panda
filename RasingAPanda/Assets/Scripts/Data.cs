@@ -15,8 +15,8 @@ public class Data
 
     public int coin = 0;
 
-    public string Panda_name;
-    public int Panda_age;
+    public string Panda_name = "푸바오";
+    public int Panda_age = 1;
 
     //RP_000
     public bool isFirstStart;                           //처음 시작했는지 확인할 변수

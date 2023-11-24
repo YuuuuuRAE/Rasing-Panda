@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField,HideInInspector]
     private Data data;
-    [SerializeField, Header("게임 객체")]
-    private GameObject Panda;
-    [SerializeField]
-    private Interaction interaction;
+
     [Header("청결도 관련"), SerializeField, Tooltip("청결도 감소 시간 간격")]
     private float clean_delay = 300f; //60 x 5
     [Header("스트레스 관련"), SerializeField, Tooltip("스트레스 증가 시간 간격")]
     private float stress_delay = 300f; //60 x 5
-    [Header("애니메이션 관련"), SerializeField, Tooltip("애니메이션 변경 시간")]
-    private float animation_delay = 180f;
-    [Header("시간관련"),SerializeField]
+
+
     private bool isFirst;
-    [SerializeField]
     private bool isUpdate;
+
+
 
     DateTime ToForegroundTime;
     DateTime ToBackgroundTime;
@@ -47,7 +45,7 @@ public class GameManager : MonoBehaviour
         data = DataManager.Instance.data;
         StartCoroutine("cleanliness", clean_delay);
         StartCoroutine("stress", stress_delay);
-        StartCoroutine(pandaanimation(animation_delay));
+
 
         isFirst = false;
     }
@@ -61,6 +59,8 @@ public class GameManager : MonoBehaviour
 
         if (data.cleanliness < 0) data.cleanliness = 0;
         if (data.stress > 100) data.stress = 100;
+
+
 
     }
 
@@ -132,27 +132,5 @@ public class GameManager : MonoBehaviour
         StartCoroutine("stress", delayTime);
     }
 
-    IEnumerator pandaanimation(float delayTime)
-    {
-        int Rand = UnityEngine.Random.Range(0, 2);
-
-        switch (Rand)
-        {
-            case 0:
-                interaction.EffectClear();
-                Panda.GetComponent<Animation>().wrapMode = WrapMode.Loop;
-                Panda.GetComponent<Animation>().CrossFade("Idle");
-                break;
-            case 1:
-                interaction.EffectClear();
-                Panda.GetComponent<Animation>().wrapMode = WrapMode.Loop;
-                Panda.GetComponent<Animation>().CrossFade("Sleep");
-                if (GameObject.FindGameObjectWithTag("Effect") == null) GameObject.Instantiate(interaction.effPrefabArray[7]);
-                break;
-        }
-
-        yield return new WaitForSeconds(delayTime);
-
-        StartCoroutine(pandaanimation(delayTime));
-    }
+    
 }
