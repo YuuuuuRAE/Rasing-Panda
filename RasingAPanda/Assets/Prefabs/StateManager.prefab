@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4625330699330314020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8397888414637047408}
+  - component: {fileID: 3094743614325126510}
+  m_Layer: 0
+  m_Name: StateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8397888414637047408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625330699330314020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3094743614325126510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625330699330314020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094ed57bdecc16e4b928a8fd02f7ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    affection_LV: 1
+    affection_curXP: 0
+    affection_maxXP: 5
+    affection_extXP: 5
+    cleanliness: 100
+    stress: 0
+    coin: 0
+    Panda_name: 
+    Panda_age: 0
+    isBGM: 0
+    isSound: 0
+    volumn: 0
+    isFirstStart: 0
+    feeds: 000000000000000000000000
+    water: 0
+    cleaning_Tools: 000000000000000000000000
+    ct_durability: 
+    playing_Tools: 000000000000000000000000
+    pt_durability: 
+    feed_num: 0
+    ct_num: 0
+    pt_num: 0
+    click_Butt: 00000000
+    time:
+    - 0
+    - 0
+    - 0
+    - 0
+  affection_slider: {fileID: 0}
+  affection_XP: {fileID: 0}
+  affection_LV: {fileID: 0}
+  coin: {fileID: 0}
+  face:
+  - {fileID: 21300000, guid: e5bdc9d03fe1f4df29ac733d627032f8, type: 3}
+  - {fileID: 21300000, guid: bcd0218d9adc745a6883569e0d23ee7b, type: 3}
+  - {fileID: 21300000, guid: 99ff786916f8c4e39b30dc63e361d578, type: 3}
+  - {fileID: 21300000, guid: 384c370aa63b8435bb5126c00527c9ad, type: 3}
+  - {fileID: 21300000, guid: 52261e4426b21440d923081a4601fc5e, type: 3}
+  clean_face: {fileID: 0}
+  stress_face: {fileID: 0}

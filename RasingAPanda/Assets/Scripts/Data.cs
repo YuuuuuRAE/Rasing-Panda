@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable] // 직렬화
 public class Data
@@ -17,6 +18,11 @@ public class Data
 
     public string Panda_name = "푸바오";
     public int Panda_age = 1;
+
+    //Sound
+    public bool isBGM = true;
+    public bool isSound = true;
+    public float volumn = 1;
 
     //RP_000
     public bool isFirstStart;                           //처음 시작했는지 확인할 변수

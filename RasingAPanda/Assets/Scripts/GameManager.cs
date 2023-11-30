@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private float stress_delay = 300f; //60 x 5
 
 
+
     private bool isFirst;
     private bool isUpdate;
 
@@ -60,7 +61,11 @@ public class GameManager : MonoBehaviour
         if (data.cleanliness < 0) data.cleanliness = 0;
         if (data.stress > 100) data.stress = 100;
 
-
+        if (DateTime.Now.ToString("tt") == "AM")
+        {
+            Camera.main.GetComponent<Camera>().backgroundColor = Color.gray;
+        }
+        else Camera.main.GetComponent<Camera>().backgroundColor = Color.black;
 
     }
 
