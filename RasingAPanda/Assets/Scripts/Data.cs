@@ -17,7 +17,7 @@ public class Data
     public int coin = 0;
 
     public string Panda_name = "푸바오";
-    public int Panda_age = 1;
+    public int Panda_age = 0;
 
     //Sound
     public bool isBGM = true;
@@ -25,7 +25,7 @@ public class Data
     public float volumn = 1;
 
     //RP_000
-    public bool isFirstStart;                           //처음 시작했는지 확인할 변수
+    public bool isFirstStart = true;                           //처음 시작했는지 확인할 변수
 
     //RP_200
     public int[] feeds = new int[3];                    //먹이의 갯수 (0: 대나무, 1: 워토우, 2: ??)

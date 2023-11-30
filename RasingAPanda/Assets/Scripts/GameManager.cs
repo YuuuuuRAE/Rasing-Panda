@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private float clean_delay = 300f; //60 x 5
     [Header("스트레스 관련"), SerializeField, Tooltip("스트레스 증가 시간 간격")]
     private float stress_delay = 300f; //60 x 5
+    [Header("나이 관련"), SerializeField]
+    private float age_delay = 86400f;
 
 
 
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         data = DataManager.Instance.data;
         StartCoroutine("cleanliness", clean_delay);
         StartCoroutine("stress", stress_delay);
+        StartCoroutine("age", age_delay);
 
 
         isFirst = false;
@@ -53,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //Computate LV
         updateAffectionLV();
         //ComputeTime();
 
@@ -95,6 +97,8 @@ public class GameManager : MonoBehaviour
                 data.cleanliness--;
             for (int j = 0; j < (int)sec / stress_delay; j++)
                 data.stress++;
+            for (int k = 0; k < (int)sec / age_delay; k++)
+                data.Panda_age++;
 
             isUpdate = false;
         }
@@ -137,5 +141,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine("stress", delayTime);
     }
 
+    IEnumerator age(float delayTime)
+    {
+        data.Panda_age++;
+        yield return new WaitForSeconds(age_delay);
+        StartCoroutine(age(delayTime));
+    }
     
 }
