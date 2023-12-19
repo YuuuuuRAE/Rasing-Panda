@@ -20,7 +20,7 @@ public class Panda : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(pandaanimation(animation_delay));
+        //StartCoroutine(pandaanimation(animation_delay));
         data = DataManager.Instance.data;
     }
 
